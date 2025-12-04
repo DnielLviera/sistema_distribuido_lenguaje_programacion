@@ -120,9 +120,9 @@ Consulta el inventario completo.
 GET /inventory/{id}
 Consulta la disponibilidad de un producto.
 
-POST /inventory
-Registra entradas o salidas de inventario.
+POST /inventory/{id}/increase
+Aumenta el stock de un producto
 
-PUT /inventory/{id}
-Actualiza el stock de un producto.
+POST /inventory/{id}/decrease
+Reduce el stock de un producto
 
