@@ -7,7 +7,7 @@ from controllers.authControllers import login_user
 
 router = APIRouter(prefix="/users", tags=["Users"])
 
-# Registro de usuario
+# registro de usuario
 @router.post("/registro")
 async def register_user(payload: UserCreate, db: AsyncSession = Depends(get_db)):
     response = await send_verification(payload, db)

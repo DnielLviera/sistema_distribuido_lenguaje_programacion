@@ -1,6 +1,5 @@
 import time
 
-# ejemplo: {"correo@mail.com": {"code": "1234", "exp": 1734680000}}
 verification_codes = {}
 
 def save_code(email: str, code: str):

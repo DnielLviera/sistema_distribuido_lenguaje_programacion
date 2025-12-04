@@ -7,7 +7,7 @@ from controllers.userControllers import verify_password
 from fastapi import HTTPException, status
 
 async def login_user(payload: UserLogin, db: AsyncSession) -> TokenOut:
-    # buscar usuario por correo
+    # buscar por correo
     query = select(User).where(User.correo == payload.email)
     result = await db.execute(query)
     user = result.scalars().first()

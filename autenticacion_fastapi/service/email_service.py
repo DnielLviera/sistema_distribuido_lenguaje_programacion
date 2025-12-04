@@ -8,6 +8,7 @@ SMTP_PASSWORD = settings.APP_PASSWORD
 SMTP_SERVER = "smtp.gmail.com"
 SMTP_PORT = 587
 
+# Enviar correo
 def send_verification_email(to_email: str, code: str):
     print("TO_EMAIL RECIBIDO EN EL SERVICIO:", to_email)
     msg = MIMEMultipart()

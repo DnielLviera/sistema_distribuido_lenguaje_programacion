@@ -1,7 +1,6 @@
 from schemas.user import UserCreate
 
 pending_users = {}  
-# ejemplo: { "correo@mail.com": UserCreate(...) }
 
 
 def save_pending_user(email: str, payload: UserCreate):
