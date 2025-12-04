@@ -1,1 +1,1 @@
-# sistema_distribuido_lenguaje_programacion
+# Sistema Distribuido Lenguaje de Programación
