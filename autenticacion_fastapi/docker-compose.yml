@@ -1,0 +1,44 @@
+version: '3.8'
+
+services:
+  db:
+    image: postgres:15.15
+    container_name: postgres-db
+    environment:
+      POSTGRES_USER: postgress
+      POSTGRES_PASSWORD: 12345
+      POSTGRES_DB: usuarios
+    ports:
+      - "5433:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    restart: always
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgress -d usuarios"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+#Servicio de fastapi
+  api:
+    build: . 
+    container_name: fastapi-api
+    ports:
+      - "8000:8000"
+    depends_on:
+      db:
+        condition: service_healthy
+    
+    environment:
+      DATABASE_HOST: db
+      DATABASE_PORT: 5432
+      DATABASE_USER: postgress
+      DATABASE_PASSWORD: 12345
+      DATABASE_NAME: usuarios
+      APP_PASSWORD: qnwq fblo epmm sfav
+      SMTP_EMAIl: proyectolenguaje28@gmail.com
+      SECRET_KEY: b05c05d1cb03fabdbdc966dff69c6fad71f33aeba14d5e9e044b06075fe2faef
+    restart: always
+
+volumes:
+  postgres_data:
